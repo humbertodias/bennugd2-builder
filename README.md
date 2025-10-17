@@ -2,6 +2,8 @@
 
 Docker containers to build [BennuGD2](https://github.com/SplinterGU/BennuGD2) for multiple platforms, including Linux and Nintendo Switch.
 
+## Platforms
+
 #### ✅ OK
 - [switch-aarch64](switch-aarch64/README.md)
 - [linux-x86_64](linux-x86_64/README.md)
