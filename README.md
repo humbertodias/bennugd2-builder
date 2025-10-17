@@ -26,6 +26,8 @@ Docker containers to build [BennuGD2](https://github.com/SplinterGU/BennuGD2) fo
 - [macos-x86](macos-x86/README.md)
 - [macos-x86_64](macos-x86_64/README.md)
 - [ps2-mips](ps2-mips/README.md)
+- [psp-mips](psp-mips/README.md)
+- [psvita-arm](psvita-arm/README.md)
 - [wii-powerpc](wii-powerpc/README.md)
 - [windows-x64](windows-x64/README.md)
 - [windows-x86](windows-x86/README.md)
