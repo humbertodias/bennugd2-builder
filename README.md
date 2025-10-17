@@ -1,4 +1,4 @@
-# Docker BennuGD2 Compiler
+# BennuGD2 Builder
 
 Docker containers to build **BennuGD2** for multiple platforms, including Linux and Nintendo Switch.
 
