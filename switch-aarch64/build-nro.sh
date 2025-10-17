@@ -21,6 +21,9 @@ fi
 # Directories
 # -----------------------------
 prg_file_dir=$(dirname "$(realpath "$prg_file")")
+# Change to the PRG file directory
+cd $prg_file_dir
+
 dir_output=$(mktemp -d)
 new_prg_file="${dir_output}/$(basename "$prg_file").new.prg"
 
@@ -87,9 +90,10 @@ elf2nro_cmd=(
 "${elf2nro_cmd[@]}"
 
 # Copy final NRO
-cp "${dir_output}/$NAME.nro" "$prg_file_dir"
+dir_workspace=/workspace
+cp "${dir_output}/$NAME.nro" ${dir_workspace}
 
 # Cleanup
 rm -rf "$dir_output"
 
-echo "Build complete: ${prg_file_dir}/$NAME.nro"
+echo "Build complete: ${dir_workspace}/$NAME.nro"
