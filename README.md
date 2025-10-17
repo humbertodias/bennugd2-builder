@@ -1,12 +1,12 @@
 # BennuGD2 Builder
 
-Docker containers to build **BennuGD2** for multiple platforms, including Linux and Nintendo Switch.
+Docker containers to build [BennuGD2](https://github.com/SplinterGU/BennuGD2) for multiple platforms, including Linux and Nintendo Switch.
 
-#### ✅ Tested
+#### ✅ OK
 - [switch-aarch64](switch-aarch64/README.md)
 - [linux-x86_64](linux-x86_64/README.md)
 
-#### ⚠️ TODO
+#### 📋 TODO
 - [android-arm](android-arm/README.md)
 - [android-arm64](android-arm64/README.md)
 - [dingoo-a320](dingoo-a320/README.md)
@@ -22,13 +22,15 @@ Docker containers to build **BennuGD2** for multiple platforms, including Linux 
 - [macos-x86](macos-x86/README.md)
 - [macos-x86_64](macos-x86_64/README.md)
 - [ps2-mips](ps2-mips/README.md)
-- [switch-aarch64](switch-aarch64/README.md)
 - [wii-powerpc](wii-powerpc/README.md)
 - [windows-x64](windows-x64/README.md)
 - [windows-x86](windows-x86/README.md)
+
+#### ⚠️ NOK
 - [xbox-x86](xbox-x86/README.md)
 
 
-### References
-- [docker](https://github.com/humbertodias/bennugd2-builder)
-- [BennuGD2](https://github.com/SplinterGU/BennuGD2)
+## 🤝 Contributing
+
+Pull requests are welcome!  
+If you find a bug or have a feature suggestion, feel free to [open an issue](https://github.com/humbertodias/bennugd2-builder/issues).
