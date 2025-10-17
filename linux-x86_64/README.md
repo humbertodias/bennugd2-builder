@@ -23,7 +23,6 @@ or build an opk file
 
 
 ```bash
-bgdc $BGD2DEV/games/bgd-pacman/bgd-pacman.prg -o bgd-pacman.dcb
 build-opk.sh $BGD2DEV/games/bgd-pacman/bgd-pacman.prg
 ```
 
