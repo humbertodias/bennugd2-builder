@@ -1,0 +1,33 @@
+FROM ubuntu:22.04
+
+ENV LANG=en_US.UTF-8
+ENV DEBIAN_FRONTEND=noninteractive
+ENV BGD2DEV=/BennuGD2
+ENV PATH=${BGD2DEV}/build/linux-gnu/bin:$PATH
+ENV LD_LIBRARY_PATH=${BGD2DEV}/build/linux-gnu/bin:${LD_LIBRARY_PATH}
+
+# Install dependencies
+RUN dpkg --add-architecture i386 && \
+    apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+        autoconf build-essential cmake make git curl wget unzip \
+        ca-certificates binutils zlib1g-dev \
+        libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev \
+        libtheora-dev libogg-dev libvorbis-dev \
+        libglu1-mesa-dev libvlc-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Clone BennuGD2 source
+ARG GIT_BENNUGD2_REPO=https://github.com/SplinterGU/BennuGD2.git
+RUN git clone --recursive ${GIT_BENNUGD2_REPO} ${BGD2DEV}
+
+# Build SDL GPU and BennuGD2
+WORKDIR ${BGD2DEV}/vendor
+RUN ./build-sdl-gpu.sh linux clean && \
+    cd ${BGD2DEV} && ./build.sh linux clean
+
+# Set default working directory and shell
+WORKDIR /workspace
+ENTRYPOINT ["/bin/bash"]
+CMD ["-i"]

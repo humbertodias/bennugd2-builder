@@ -2,44 +2,22 @@
 
 Docker containers to build **BennuGD2** for multiple platforms, including Linux and Nintendo Switch.
 
-## Build Docker Images
-
-You can build the images for the supported platforms either with Docker commands:
-
-```bash
-make build-linux-x64
-make build-switch
-make all
-```
-
 ## Usage
 
-### Run Linux BennuGD2
+### Linux
 
+* i386
 ```bash
-make run-linux-x64
+docker run --rm -it -v `pwd`:/workspace hldtux/bennugd2-linux32
+```
+* x86_64
+```bash
+docker run --rm -it -v `pwd`:/workspace hldtux/bennugd2-linux64
 ```
 
-### Run Switch BennuGD2
-
-Mount your current directory as `/workspace` to build NRO files:
+### Switch
 
 ```bash
-make run-switch
-```
-
-## Clean up
-
-Remove the built Docker images:
-
-```bash
-make clean
-```
-
-## Help
-
-For a summary of Makefile commands:
-
-```bash
-make help
+docker run --rm -it -v `pwd`:/workspace hldtux/bennugd2-switch
+build-nro.sh game.prg
 ```

@@ -1,4 +1,4 @@
-FROM bennugd2-linux
+FROM hldtux/bennugd2-linux64:latest
 
 ENV DEVKITPRO=/opt/devkitpro
 

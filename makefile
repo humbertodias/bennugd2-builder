@@ -1,38 +1,26 @@
-LINUX_IMG  := bgd2-linux-x64
-SWITCH_IMG := bgd2-switch
+IMAGE_PREFIX = hldtux/bennugd2
 
-LINUX_DIR  := linux-x64
-SWITCH_DIR := switch-aarch64
+build/linux32:
+	docker build linux-i386 -t linux32
 
-.PHONY: all
-all: build-linux-x64 build-switch
+build/linux64:
+	docker build linux-x86_64 -t $(IMAGE_PREFIX)-linux64
 
-.PHONY: build-linux-x64
-build-linux:
-	docker build $(LINUX_DIR) -t $(LINUX_IMG)
+build/switch:
+	docker build switch-aarch64 -t $(IMAGE_PREFIX)-switch
 
-.PHONY: build-switch
-build-switch:
-	docker build $(SWITCH_DIR) -t $(SWITCH_IMG)
+build: build-linux32 build-linux64 build-switch
 
-.PHONY: run-linux-x64
-run-linux:
-	docker run --rm -it $(LINUX_IMG)
+deploy/linux32:
+	docker push $(IMAGE_PREFIX)-linux32
 
-.PHONY: run-switch
-run-switch:
-	docker run --rm -it -v "$(PWD)":/workspace -w /workspace $(SWITCH_IMG)
+deploy/linux64:
+	docker push $(IMAGE_PREFIX)-linux64
 
-.PHONY: clean
+deploy/switch:
+	docker push $(IMAGE_PREFIX)-switch
+
+deploy: deploy-linux32 deploy-linux64 deploy-switch
+
 clean:
-	docker rmi -f $(LINUX_IMG) $(SWITCH_IMG) || true
-
-.PHONY: help
-help:
-	@echo "Makefile commands for BennuGD2 Docker:"
-	@echo "  make build-linux-x64 - Build Linux 64-bit Docker image"
-	@echo "  make build-switch    - Build Nintendo Switch Docker image"
-	@echo "  make run-linux-x64   - Run Linux container interactively"
-	@echo "  make run-switch      - Run Switch container interactively (mounts current dir)"
-	@echo "  make clean           - Remove built images"
-	@echo "  make all             - Build both images"
+	docker rmi -f $(IMAGE_PREFIX)-linux32 $(IMAGE_PREFIX)-linux64 $(IMAGE_PREFIX)-switch || true
