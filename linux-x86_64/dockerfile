@@ -24,7 +24,7 @@ RUN chmod +x /usr/local/bin/build-opk.sh
 
 # Clone BennuGD2 source
 ARG GIT_BENNUGD2_REPO=https://github.com/SplinterGU/BennuGD2.git
-RUN git clone --recursive ${GIT_BENNUGD2_REPO} ${BGD2DEV}
+RUN git clone --recursive --depth 1 ${GIT_BENNUGD2_REPO} ${BGD2DEV}
 
 # Build SDL GPU and BennuGD2
 WORKDIR ${BGD2DEV}/vendor
