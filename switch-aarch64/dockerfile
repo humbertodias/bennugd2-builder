@@ -1,0 +1,44 @@
+FROM bennugd2-linux
+
+ENV DEVKITPRO=/opt/devkitpro
+
+# Update PATHs
+ENV PATH=${DEVKITPRO}/tools/bin:${BGD2DEV}/build/aarch64-none-elf/bin:$PATH
+ENV LD_LIBRARY_PATH=${BGD2DEV}/build/aarch64-none-elf/bin:${LD_LIBRARY_PATH}
+
+# Install DevkitPro and required toolchains
+RUN ln -sf /proc/mounts /etc/mtab && \
+    wget -q https://apt.devkitpro.org/install-devkitpro-pacman && \
+    chmod +x ./install-devkitpro-pacman && \
+    yes | ./install-devkitpro-pacman && \
+    rm ./install-devkitpro-pacman && \
+    dkp-pacman -Syyu --noconfirm && \
+    dkp-pacman -S --needed --noconfirm \
+        dkp-toolchain-vars \
+        dkp-meson-scripts \
+        switch-dev \
+        switch-portlibs \
+        devkitARM \
+        hactool && \
+    yes | dkp-pacman -Scc
+
+# Add build script
+ADD build-nro.sh /usr/local/bin/build-nro.sh
+RUN chmod +x /usr/local/bin/build-nro.sh
+
+# Build SDL GPU for Switch
+WORKDIR ${BGD2DEV}/vendor
+RUN ./build-sdl-gpu.sh switch clean
+
+# Build bgdi.elf
+WORKDIR ${BGD2DEV}
+RUN ./build.sh switch clean
+
+# Default working directory and shell
+WORKDIR /workspace
+ENTRYPOINT ["/bin/bash"]
+CMD ["-i"]
+
+# Usage instructions in comments:
+# Build: docker build -t bennugd2-switch .
+# Run: docker run -it -v $(pwd):/workspace -w /workspace bennugd2-switch
