@@ -22,7 +22,7 @@ Build nro
 docker run --rm -it -v `pwd`:/workspace hldtux/bennugd2-switch
 build-nro.sh $BGD2DEV/games/bgd-pacman/bgd-pacman.prg
 ```
-Install nxlink
+Install nxlink (if needed)
 ```bash
 sudo dkp-pacman -S switch-dev
 ```
