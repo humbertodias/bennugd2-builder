@@ -2,5 +2,28 @@
 
 Docker containers to build **BennuGD2** for multiple platforms, including Linux and Nintendo Switch.
 
-## Usage
-[Switch-aarch64](switch-aarch64/README.md) | [Linux-i386](linux-i386/README.md) | [Linux-i386](linux-x86_64/README.md)
+#### ✅ Tested
+- [switch-aarch64](switch-aarch64/README.md)
+- [linux-x86_64](linux-x86_64/README.md)
+- [linux-i386](linux-i386/README.md)
+
+#### ⚠️ TODO
+- [android-arm](android-arm/README.md)
+- [android-arm64](android-arm64/README.md)
+- [dingoo-a320](dingoo-a320/README.md)
+- [dingux-mips](dingux-mips/README.md)
+- [dreamcast-sh4](dreamcast-sh4/README.md)
+- [freebsd-x86](freebsd-x86/README.md)
+- [gp2x-caanoo](gp2x-caanoo/README.md)
+- [gp2x-wiz](gp2x-wiz/README.md)
+- [haiku-x86](haiku-x86/README.md)
+- [ios-arm64](ios-arm64/README.md)
+- [macos-arm64](macos-arm64/README.md)
+- [macos-x86](macos-x86/README.md)
+- [macos-x86_64](macos-x86_64/README.md)
+- [ps2-mips](ps2-mips/README.md)
+- [switch-aarch64](switch-aarch64/README.md)
+- [wii-powerpc](wii-powerpc/README.md)
+- [windows-x64](windows-x64/README.md)
+- [windows-x86](windows-x86/README.md)
+- [xbox-x86](xbox-x86/README.md)
