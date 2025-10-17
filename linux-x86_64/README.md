@@ -17,3 +17,17 @@ bgdi bgd-pacman.dcb
 ```
 
 <img width="640" height="514" alt="image" src="https://github.com/user-attachments/assets/c386b52f-2656-4516-8b1b-491c611d22db" />
+
+
+or build an opk file
+
+
+```bash
+bgdc $BGD2DEV/games/bgd-pacman/bgd-pacman.prg -o bgd-pacman.dcb
+build-opk.sh $BGD2DEV/games/bgd-pacman/bgd-pacman.prg
+```
+
+Run
+```bash
+./bgd-pacman.opk
+```

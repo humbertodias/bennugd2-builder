@@ -4,7 +4,7 @@ ENV LANG=en_US.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
 ENV BGD2DEV=/BennuGD2
 ENV PATH=${BGD2DEV}/build/linux-gnu/bin:$PATH
-ENV LD_LIBRARY_PATH=${BGD2DEV}/build/linux-gnu/bin:${LD_LIBRARY_PATH}
+ENV LD_LIBRARY_PATH=${BGD2DEV}/build/linux-gnu/bin
 
 # Install dependencies
 RUN dpkg --add-architecture i386 && \
@@ -12,7 +12,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
         autoconf build-essential cmake make git curl wget unzip \
-        ca-certificates binutils zlib1g-dev \
+        ca-certificates binutils zlib1g-dev squashfs-tools \
         libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev \
         libtheora-dev libogg-dev libvorbis-dev \
         libglu1-mesa-dev libvlc-dev && \
