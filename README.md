@@ -1,3 +1,5 @@
+[![CC](https://github.com/humbertodias/bennugd2-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/ci.yml)
+
 # BennuGD2 Builder
 
 Docker containers to build [BennuGD2](https://github.com/SplinterGU/BennuGD2) for multiple platforms, including Linux and Nintendo Switch.
