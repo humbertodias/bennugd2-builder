@@ -5,7 +5,6 @@ Docker containers to build **BennuGD2** for multiple platforms, including Linux 
 #### ✅ Tested
 - [switch-aarch64](switch-aarch64/README.md)
 - [linux-x86_64](linux-x86_64/README.md)
-- [linux-i386](linux-i386/README.md)
 
 #### ⚠️ TODO
 - [android-arm](android-arm/README.md)
@@ -18,6 +17,7 @@ Docker containers to build **BennuGD2** for multiple platforms, including Linux 
 - [gp2x-wiz](gp2x-wiz/README.md)
 - [haiku-x86](haiku-x86/README.md)
 - [ios-arm64](ios-arm64/README.md)
+- [linux-i386](linux-i386/README.md)
 - [macos-arm64](macos-arm64/README.md)
 - [macos-x86](macos-x86/README.md)
 - [macos-x86_64](macos-x86_64/README.md)
