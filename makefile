@@ -1,7 +1,7 @@
 IMAGE_PREFIX = hldtux/bennugd2
 
 build/linux32:
-	docker build linux-i386 -t linux32
+	docker build linux-i386 -t $(IMAGE_PREFIX)-linux32
 
 build/linux64:
 	docker build linux-x86_64 -t $(IMAGE_PREFIX)-linux64
