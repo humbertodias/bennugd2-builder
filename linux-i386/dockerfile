@@ -11,16 +11,16 @@ RUN dpkg --add-architecture i386 && \
     apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
-        autoconf build-essential cmake make git curl wget unzip \
-        ca-certificates binutils zlib1g-dev squashfs-tools \
-        libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev \
-        libtheora-dev libogg-dev libvorbis-dev \
-        libglu1-mesa-dev libvlc-dev && \
+        gcc-multilib g++-multilib binutils git cmake build-essential unzip \
+        ca-certificates binutils zlib1g-dev:i386 squashfs-tools \
+        libsdl2-dev:i386 libsdl2-image-dev:i386 libsdl2-mixer-dev:i386 \
+        libtheora-dev:i386  libogg-dev:i386 libvorbis-dev:i386 \
+        libglu1-mesa-dev:i386 libvlc-dev:i386 && \
     rm -rf /var/lib/apt/lists/*
-
+      
 # Clone BennuGD2 source
 ARG GIT_BENNUGD2_REPO=https://github.com/SplinterGU/BennuGD2.git
-RUN git clone --recursive ${GIT_BENNUGD2_REPO} ${BGD2DEV}
+RUN git clone --recursive --depth 1 ${GIT_BENNUGD2_REPO} ${BGD2DEV}
 
 # Build SDL GPU and BennuGD2
 WORKDIR ${BGD2DEV}/vendor
