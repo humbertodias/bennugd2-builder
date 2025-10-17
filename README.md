@@ -2,7 +2,7 @@
 
 # BennuGD2 Builder
 
-Docker containers to build [BennuGD2](https://github.com/SplinterGU/BennuGD2) for multiple platforms.
+Docker containers for building [BennuGD2](https://github.com/SplinterGU/BennuGD2) for across multiple platforms.
 
 ## Platforms
 
