@@ -2,7 +2,7 @@
 
 # BennuGD2 Builder
 
-Docker containers to build [BennuGD2](https://github.com/SplinterGU/BennuGD2) for multiple platforms, including Linux and Nintendo Switch.
+Docker containers to build [BennuGD2](https://github.com/SplinterGU/BennuGD2) for multiple platforms.
 
 ## Platforms
 
