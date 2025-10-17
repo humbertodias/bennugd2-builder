@@ -24,8 +24,8 @@ RUN git clone --recursive ${GIT_BENNUGD2_REPO} ${BGD2DEV}
 
 # Build SDL GPU and BennuGD2
 WORKDIR ${BGD2DEV}/vendor
-RUN ./build-sdl-gpu.sh linux clean && \
-    cd ${BGD2DEV} && ./build.sh linux clean
+RUN ./build-sdl-gpu.sh linux32 clean && \
+    cd ${BGD2DEV} && ./build.sh linux32 clean
 
 # Set default working directory and shell
 WORKDIR /workspace
