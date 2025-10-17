@@ -27,3 +27,8 @@ Docker containers to build **BennuGD2** for multiple platforms, including Linux 
 - [windows-x64](windows-x64/README.md)
 - [windows-x86](windows-x86/README.md)
 - [xbox-x86](xbox-x86/README.md)
+
+
+### References
+- [docker](https://github.com/humbertodias/bennugd2-builder)
+- [BennuGD2](https://github.com/SplinterGU/BennuGD2)
