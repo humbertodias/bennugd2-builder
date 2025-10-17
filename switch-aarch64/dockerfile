@@ -39,6 +39,6 @@ WORKDIR /workspace
 ENTRYPOINT ["/bin/bash"]
 CMD ["-i"]
 
-# Usage instructions in comments:
+# Usage
 # Build: docker build -t bennugd2-switch .
-# Run: docker run -it -v $(pwd):/workspace -w /workspace bennugd2-switch
+# Run: docker run -it -v $(pwd):/workspace bennugd2-switch
