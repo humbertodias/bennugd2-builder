@@ -24,15 +24,15 @@ jobs:
 
       - name: Build and Package
         run: |
-          # Switch build
-          make build/switch
-          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-switch \
-            -c "tar -czvf /workspace/bgd2-switch-aarch64.tar.gz -C /BennuGD2/build/aarch64-none-elf/bin ."
-
           # Linux build
           make build/linux64
           docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-linux64 \
             -c "tar -czvf /workspace/bgd2-linux-x86_64.tar.gz -C /BennuGD2/build/linux-gnu/bin ."
+
+          # Switch build
+          make build/switch
+          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-switch \
+            -c "tar -czvf /workspace/bgd2-switch-aarch64.tar.gz -C /BennuGD2/build/aarch64-none-elf/bin ."
 
       - name: Upload artifacts Linux
         uses: actions/upload-artifact@v4
