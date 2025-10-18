@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: sudo apt update -y && sudo apt install -y zip make
-              
+
       - name: Build
         run: make build/switch
 
@@ -31,11 +31,27 @@ jobs:
         run: |
           docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-switch \
             -c "tar -czvf /workspace/bgdi-switch-aarch64.tar.gz -C /BennuGD2/build/aarch64-none-elf/bin ."
+            
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: bgdi-switch-aarch64
           path: bgdi-switch-aarch64.tar.gz
+
+      - name: Build
+        run: make build/linux64
+
+      - name: Compress and Get binaries
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-linux64 \
+            -c "tar -czvf /workspace/bgdi-linux64.tar.gz -C /BennuGD2/build/linux-gnu/bin ."
+            
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bgd2-linux-x64_64
+          path: bgd2-linux-x64_64.tar.gz
+
 
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
