@@ -25,7 +25,7 @@ jobs:
         run: docker run --rm -v `pwd`:/workspace hldtux/bennugd2-switch:latest -c "tar -czvf bgdi-switch-aarch64.tar.gz -C /BennuGD2/build/aarch64-none-elf/bin ."
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: bgdi-switch-aarch64
           path: bgdi-switch-aarch64.tar.gz
