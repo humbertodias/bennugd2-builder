@@ -3,38 +3,41 @@
 
 # BennuGD2 Builder
 
-Docker containers for building [BennuGD2](https://github.com/SplinterGU/BennuGD2) for across multiple platforms.
+Docker containers for building [BennuGD2](https://github.com/SplinterGU/BennuGD2) across multiple platforms.
 
-## Platforms
+## 🖥️ Supported Platforms
 
-#### ✅ OK
-- [switch-aarch64](switch-aarch64/README.md)
-- [linux-x86_64](linux-x86_64/README.md)
+### ✅ Available
 
-#### 📋 TODO
-- [android-arm](android-arm/README.md)
-- [android-arm64](android-arm64/README.md)
-- [dingoo-a320](dingoo-a320/README.md)
-- [dingux-mips](dingux-mips/README.md)
-- [dreamcast-sh4](dreamcast-sh4/README.md)
-- [freebsd-x86](freebsd-x86/README.md)
-- [gp2x-caanoo](gp2x-caanoo/README.md)
-- [gp2x-wiz](gp2x-wiz/README.md)
-- [haiku-x86](haiku-x86/README.md)
-- [ios-arm64](ios-arm64/README.md)
-- [linux-i386](linux-i386/README.md)
-- [macos-arm64](macos-arm64/README.md)
-- [macos-x86](macos-x86/README.md)
-- [macos-x86_64](macos-x86_64/README.md)
-- [ps2-mips](ps2-mips/README.md)
-- [psp-mips](psp-mips/README.md)
-- [psvita-arm](psvita-arm/README.md)
-- [wii-powerpc](wii-powerpc/README.md)
-- [windows-x64](windows-x64/README.md)
-- [windows-x86](windows-x86/README.md)
+* [Switch (aarch64)](switch-aarch64/README.md)
+* [Linux (x86_64)](linux-x86_64/README.md)
 
-#### ⚠️ NOK
-- [xbox-x86](xbox-x86/README.md)
+### 📋 To Do
+
+* [Android (ARM)](android-arm/README.md)
+* [Android (ARM64)](android-arm64/README.md)
+* [Dingoo A320](dingoo-a320/README.md)
+* [Dingux (MIPS)](dingux-mips/README.md)
+* [Dreamcast (SH4)](dreamcast-sh4/README.md)
+* [FreeBSD (x86)](freebsd-x86/README.md)
+* [GP2X Caanoo](gp2x-caanoo/README.md)
+* [GP2X Wiz](gp2x-wiz/README.md)
+* [Haiku (x86)](haiku-x86/README.md)
+* [iOS (ARM64)](ios-arm64/README.md)
+* [Linux (i386)](linux-i386/README.md)
+* [macOS (ARM64)](macos-arm64/README.md)
+* [macOS (x86)](macos-x86/README.md)
+* [macOS (x86_64)](macos-x86_64/README.md)
+* [PlayStation 2 (MIPS)](ps2-mips/README.md)
+* [PSP (MIPS)](psp-mips/README.md)
+* [PS Vita (ARM)](psvita-arm/README.md)
+* [Nintendo Wii (PowerPC)](wii-powerpc/README.md)
+* [Windows (x64)](windows-x64/README.md)
+* [Windows (x86)](windows-x86/README.md)
+
+### ⚠️ Not Yet Supported
+
+* [Xbox (x86)](xbox-x86/README.md)
 
 
 ## 🤝 Contributing
