@@ -22,8 +22,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Compress and Get binaries
-        run: docker run --rm -v `pwd`:/workspace hldtux/bennugd2-switch:latest -c "tar -czvf bgdi-switch-aarch64.tar.gz -C /BennuGD2/build/aarch64-none-elf/bin ."
-
+        run: |
+          docker run --rm --platform linux/arm64 -v ${{ github.workspace }}:/workspace hldtux/bennugd2-switch:latest \
+            -c "tar -czvf /workspace/bgdi-switch-aarch64.tar.gz -C /BennuGD2/build/aarch64-none-elf/bin ."
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
