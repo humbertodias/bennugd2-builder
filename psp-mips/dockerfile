@@ -1,0 +1,5 @@
+FROM pspdev/pspdev
+
+WORKDIR /workspace
+
+#RUN make
