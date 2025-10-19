@@ -16,55 +16,61 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: linux-x86_64
+            docker_image: hldtux/bennugd2-linux-x86_64
+            build_cmd: |
+              cd BennuGD2/vendor && ./build-sdl-gpu.sh linux clean
+              cd .. && ./build.sh linux clean
+              tar -czvf /workspace/bgd2-linux-x86_64.tar.gz -C /workspace/BennuGD2/build/linux-gnu/bin .
+          - name: switch-aarch64
+            docker_image: hldtux/bennugd2-switch-aarch64
+            build_cmd: |
+              cd BennuGD2/vendor && ./build-sdl-gpu.sh switch clean
+              cd .. && ./build.sh switch clean
+              tar -czvf /workspace/bgd2-switch-aarch64.tar.gz -C /workspace/BennuGD2/build/aarch64-none-elf/bin .
+          - name: android-arm64
+            docker_image: hldtux/bennugd2-android-arm64
+            build_cmd: |
+              cd BennuGD2 && ./build-android-deps.sh
+              tar -czvf /workspace/bgd2-android-arm64.tar.gz -C /workspace/BennuGD2/vendor/android/x86_64-linux-android/x86_64/lib .
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
         run: sudo apt update -y && sudo apt install -y zip make
 
-      - name: Set Environment Variables
-        run: |
-          git clone --recursive --depth 1 https://github.com/SplinterGU/BennuGD2.git BennuGD2
+      - name: Clone BennuGD2 source
+        run: git clone --recursive --depth 1 https://github.com/SplinterGU/BennuGD2.git BennuGD2
 
-      - name: Build and Package Linux
+      - name: Build and Package (${{ matrix.name }})
         run: |
-          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-linux-x86_64 \
-            -c "cd BennuGD2/vendor && ./build-sdl-gpu.sh linux clean && cd .. && ./build.sh linux clean ; tar -czvf /workspace/bgd2-linux-x86_64.tar.gz -C /workspace/BennuGD2/build/linux-gnu/bin ."
+          docker run --rm -v ${{ github.workspace }}:/workspace ${{ matrix.docker_image }} \
+            bash -c "${{ matrix.build_cmd }}"
 
-      - name: Build and Package Switch
-        run: |
-          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-switch-aarch64 \
-            -c "cd BennuGD2/vendor && ./build-sdl-gpu.sh switch clean && cd .. && ./build.sh switch clean ; tar -czvf /workspace/bgd2-switch-aarch64.tar.gz -C /workspace/BennuGD2/build/aarch64-none-elf/bin ."
-
-      - name: Build and Package Android
-        run: |
-          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-android-arm64 \
-            bash -c "cd BennuGD2 && ./build-android-deps.sh ; tar -czvf bgd2-android-x86_64.tar.gz -C /workspace/BennuGD2/vendor/android/x86_64-linux-android/x86_64/lib ."
-
-      - name: Upload artifacts Linux
+      - name: Upload artifact (${{ matrix.name }})
         uses: actions/upload-artifact@v4
         with:
-          name: bgd2-linux-x86_64
-          path: |
-            bgd2-linux-x86_64.tar.gz
-      - name: Upload artifacts Switch
-        uses: actions/upload-artifact@v4
-        with:
-          name: bgd2-switch-aarch64
-          path: |
-            bgd2-switch-aarch64.tar.gz
+          name: bgd2-${{ matrix.name }}
+          path: bgd2-${{ matrix.name }}.tar.gz
 
-      - name: Upload artifacts Android
-        uses: actions/upload-artifact@v4
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
         with:
-          name: bgd2-android-arm64
-          path: |
-            bgd2-android-arm64.tar.gz
-             
+          path: artifacts
+
       - name: Create GitHub Release
-        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          files: "*.tar.gz"
+          files: artifacts/**/*.tar.gz
