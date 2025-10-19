@@ -1,5 +1,6 @@
 [![CC](https://github.com/humbertodias/bennugd2-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/ci.yml)
 [![CD](https://github.com/humbertodias/bennugd2-builder/actions/workflows/cd.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/cd.yml)
+[![DOCKER](https://github.com/humbertodias/bennugd2-builder/actions/workflows/docker.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/docker.yml)
 
 # BennuGD2 Builder
 
@@ -11,11 +12,11 @@ Docker containers for building [BennuGD2](https://github.com/SplinterGU/BennuGD2
 
 * [Switch (aarch64)](switch-aarch64/README.md)
 * [Linux (x86_64)](linux-x86_64/README.md)
+* [Android (ARM64)](android-arm64/README.md)
 
 ### 📋 To Do
 
 * [Android (ARM)](android-arm/README.md)
-* [Android (ARM64)](android-arm64/README.md)
 * [Dingoo A320](dingoo-a320/README.md)
 * [Dingux (MIPS)](dingux-mips/README.md)
 * [Dreamcast (SH4)](dreamcast-sh4/README.md)
