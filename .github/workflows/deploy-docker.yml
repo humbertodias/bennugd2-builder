@@ -36,7 +36,7 @@ jobs:
         with:
           destination_container_repo: ${{ secrets.DOCKERHUB_USERNAME }}/bennugd2-${{ matrix.context }}
           provider: dockerhub
-          short_description: 'Docker containers for building [BennuGD2](https://github.com/SplinterGU/BennuGD2) across multiple platforms.'
+          short_description: 'Docker containers for building BennuGD2 across multiple platforms'
           readme_file: 'README.md'
 
       - name: Set up QEMU
