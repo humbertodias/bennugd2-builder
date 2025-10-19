@@ -37,7 +37,7 @@ jobs:
           DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_PASS: ${{ secrets.DOCKERHUB_TOKEN }}
         with:
-          destination_container_repo: ${{ secrets.DOCKERHUB_USERNAME }}/bennugd2-${{ env.TAG_NAME }}
+          destination_container_repo: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.TAG_NAME }}
           provider: dockerhub
           short_description: 'Docker containers for building BennuGD2 across multiple platforms'
           readme_file: 'README.md'
