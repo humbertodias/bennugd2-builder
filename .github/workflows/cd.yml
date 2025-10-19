@@ -28,17 +28,17 @@ jobs:
 
       - name: Build and Package Linux
         run: |
-          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-linux64 \
+          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-linux-x86_64 \
             -c "cd vendor && ./build-sdl-gpu.sh linux clean && cd .. && ./build.sh linux clean ; tar -czvf bgd2-linux-x86_64.tar.gz -C /workspace/BennuGD2/build/linux-gnu/bin ."
 
       - name: Build and Package Switch
         run: |
-          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-switch \
+          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/switch-aarch64 \
             -c "cd vendor && ./build-sdl-gpu.sh switch clean && cd .. && ./build.sh switch clean ; tar -czvf bgd2-switch-aarch64.tar.gz -C /BennuGD2/build/aarch64-none-elf/bin ."
 
       - name: Build and Package Android
         run: |
-          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-android64 \
+          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-android-arm64 \
             bash -c "./build-android-deps.sh ; tar -czvf bgd2-android-x86_64.tar.gz -C /workspace/BennuGD2/vendor/android/x86_64-linux-android/x86_64/lib ."
 
       - name: Upload artifacts Linux
@@ -52,14 +52,14 @@ jobs:
         with:
           name: bgd2-switch-aarch64
           path: |
-            bgd2-switch-x86_64.tar.gz
+            bgd2-switch-aarch64.tar.gz
 
       - name: Upload artifacts Android
         uses: actions/upload-artifact@v4
         with:
-          name: bgd2-android-x86_64
+          name: bgd2-android-arm64
           path: |
-            bgd2-android-x86_64.tar.gz
+            bgd2-android-arm64.tar.gz
              
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')

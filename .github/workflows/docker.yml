@@ -1,4 +1,4 @@
-name: DEPLOY
+name: DOCKER
 
 on:
   workflow_dispatch:
