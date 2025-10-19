@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y wget unzip git curl cmake autoconf auto
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ADD build-android.sh /usr/local/bin/build-android.sh
+RUN chmod +x /usr/local/bin/build-android.sh
 
 # Default working directory
 WORKDIR /workspace
