@@ -35,7 +35,7 @@ jobs:
           - name: android-arm64
             docker_image: hldtux/bennugd2-android-arm64
             build_cmd: |
-              cd BennuGD2 && chmod +x /usr/local/bin/build-android.sh && /usr/local/bin/build-android.sh
+              cd BennuGD2 && /usr/local/bin/build-android.sh
               tar -czvf /workspace/bgd2-android-arm64.tar.gz -C /workspace/BennuGD2/vendor/android/aarch64-linux-android/arm64-v8a/lib .
 
     steps:
