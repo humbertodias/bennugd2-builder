@@ -33,7 +33,7 @@ jobs:
 
       - name: Build and Package Switch
         run: |
-          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/switch-aarch64 \
+          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-switch-aarch64 \
             -c "cd BennuGD2/vendor && ./build-sdl-gpu.sh switch clean && cd .. && ./build.sh switch clean ; tar -czvf /workspace/bgd2-switch-aarch64.tar.gz -C /workspace/BennuGD2/build/aarch64-none-elf/bin ."
 
       - name: Build and Package Android
