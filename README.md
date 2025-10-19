@@ -1,5 +1,6 @@
 [![CC](https://github.com/humbertodias/bennugd2-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/ci.yml)
 [![CD](https://github.com/humbertodias/bennugd2-builder/actions/workflows/cd.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/cd.yml)
+[![DOCKER](https://github.com/humbertodias/bennugd2-builder/actions/workflows/docker.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/docker.yml)
 
 # BennuGD2 Builder
 
