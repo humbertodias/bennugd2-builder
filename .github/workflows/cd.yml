@@ -24,7 +24,7 @@ jobs:
 
       - name: Set Environment Variables
         run: |
-          git clone --recursive --depth 1 ttps://github.com/SplinterGU/BennuGD2.git BennuGD2
+          git clone --recursive --depth 1 https://github.com/SplinterGU/BennuGD2.git BennuGD2
 
       - name: Build and Package Linux
         run: |
