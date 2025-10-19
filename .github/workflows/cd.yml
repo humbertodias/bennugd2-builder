@@ -28,8 +28,6 @@ jobs:
           export BGD2DEV=${{ github.workspace }}/BennuGD2
           git clone --recursive --depth 1 ${GIT_BENNUGD2_REPO} ${BGD2DEV}
 
-          #cp makefile ${BGD2DEV}/makefile
-
           # Linux build
           make build/linux64
           docker run --rm -v $BGD2DEV:/workspace hldtux/bennugd2-linux64 \
@@ -43,7 +41,7 @@ jobs:
           # Android build
           make build/android64
           docker run --rm -v $BGD2DEV:/workspace hldtux/bennugd2-android64 \
-          bash -c "make build/android64 ; ./build-android-deps.sh ; tar -czvf /workspace/bgd2-android-x86_64.tar.gz -C /BennuGD2/vendor/android/x86_64-linux-android/x86_64/lib ."
+          bash -c "make build/android64 ; ./build-android-deps.sh ; tar -czvf /workspace/bgd2-android-x86_64.tar.gz -C /workspace/vendor/android/x86_64-linux-android/x86_64/lib ."
 
       - name: Upload artifacts Linux
         uses: actions/upload-artifact@v4
