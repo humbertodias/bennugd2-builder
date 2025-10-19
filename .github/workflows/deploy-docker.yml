@@ -1,4 +1,4 @@
-name: deploy-docker
+name: DEPLOY
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ jobs:
         context:
           - linux-x86_64
           - switch-aarch64
-          - android-x86_64
+          - android-arm64
 
     steps:
       - name: Checkout repository
