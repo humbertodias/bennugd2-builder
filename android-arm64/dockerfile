@@ -29,4 +29,3 @@ RUN apt-get update && apt-get install -y wget unzip git curl cmake autoconf auto
 
 # Default working directory
 WORKDIR /workspace
-CMD ["-i"]
