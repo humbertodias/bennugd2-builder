@@ -24,15 +24,23 @@ jobs:
 
       - name: Build and Package
         run: |
+          export GIT_BENNUGD2_REPO=https://github.com/SplinterGU/BennuGD2.git
+          export BGD2DEV=${{ github.workspace }}/BennuGD2
+          git clone --recursive --depth 1 ${GIT_BENNUGD2_REPO} ${BGD2DEV}
+
+          cp makefile ${BGD2DEV}/makefile
+
           # Linux build
-          make build/linux64
-          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-linux64 \
-            -c "tar -czvf /workspace/bgd2-linux-x86_64.tar.gz -C /BennuGD2/build/linux-gnu/bin ."
+          docker run --rm -v $BGD2DEV:/workspace hldtux/bennugd2-linux64 \
+            -c "make build/linux64 ; tar -czvf /workspace/bgd2-linux-x86_64.tar.gz -C /BennuGD2/build/linux-gnu/bin ."
 
           # Switch build
-          make build/switch
-          docker run --rm -v ${{ github.workspace }}:/workspace hldtux/bennugd2-switch \
-            -c "tar -czvf /workspace/bgd2-switch-aarch64.tar.gz -C /BennuGD2/build/aarch64-none-elf/bin ."
+          docker run --rm -v $BGD2DEV:/workspace hldtux/bennugd2-switch \
+            -c "make build/switch ; tar -czvf /workspace/bgd2-switch-aarch64.tar.gz -C /BennuGD2/build/aarch64-none-elf/bin ."
+
+          # Android build
+          docker run --rm -v $BGD2DEV:/workspace hldtux/bennugd2-android64 \
+            -c "make build/android64 ; tar -czvf /workspace/bgd2-android-x86_64.tar.gz -C /BennuGD2/vendor/android/x86_64-linux-android/x86_64/lib ."
 
       - name: Upload artifacts Linux
         uses: actions/upload-artifact@v4
@@ -45,8 +53,15 @@ jobs:
         with:
           name: bgd2-switch-aarch64
           path: |
-            bgd2-switch-aarch64.tar.gz
-            
+            bgd2-switch-x86_64.tar.gz
+
+      - name: Upload artifacts Android
+        uses: actions/upload-artifact@v4
+        with:
+          name: bgd2-android-x86_64
+          path: |
+            bgd2-android-x86_64.tar.gz
+             
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2

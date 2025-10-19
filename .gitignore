@@ -1,3 +1,6 @@
 *.nro
 *.dcb
 *.opk
+*.elf
+*.o
+.vscode
