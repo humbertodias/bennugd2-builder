@@ -31,7 +31,7 @@ jobs:
             build_cmd: |
               cd BennuGD2/vendor && ./build-sdl-gpu.sh switch clean
               cd .. && ./build.sh switch clean
-              build-nro.sh $BGD2DEV/examples/01-helloworld/01-helloworld.prg
+              build-nro.sh /workspace/BennuGD2/examples/01-helloworld/01-helloworld.prg
               tar -czvf /workspace/bgd2-switch-aarch64.tar.gz \
               -C /workspace/BennuGD2/build/aarch64-none-elf/bin . \
               -C /workspace/01-helloworld.nro
