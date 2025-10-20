@@ -34,7 +34,7 @@ jobs:
               build-nro.sh /workspace/BennuGD2/examples/01-helloworld/01-helloworld.prg
               tar -czvf /workspace/bgd2-switch-aarch64.tar.gz \
               -C /workspace/BennuGD2/build/aarch64-none-elf/bin . \
-              -C /workspace/01-helloworld.nro
+              -C /workspace 01-helloworld.nro
           - name: android-arm64
             docker_image: hldtux/bennugd2-android-arm64
             build_cmd: |
