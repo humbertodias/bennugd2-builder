@@ -2,7 +2,7 @@
 
 Inside container
 ```bash
-docker run --rm -it -v `pwd`:/workspace hldtux/bennugd2-switch
+docker run --rm -it -v `pwd`:/workspace hldtux/bennugd2-switch-aarch64
 ```
 Build nro
 ```bash
