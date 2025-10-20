@@ -30,6 +30,20 @@ RUN apt-get update && apt-get install -y wget unzip git curl cmake autoconf auto
 ADD build-android.sh /usr/local/bin/build-android.sh
 RUN chmod +x /usr/local/bin/build-android.sh
 
+ADD android_template /opt/android_template
+
+# Clone BennuGD2 source
+ENV BGD2DEV=/BennuGD2
+ARG GIT_BENNUGD2_REPO=https://github.com/SplinterGU/BennuGD2.git
+RUN git clone --recursive --depth 1 ${GIT_BENNUGD2_REPO} ${BGD2DEV}
+
+WORKDIR ${BGD2DEV}
+RUN /usr/local/bin/build-android.sh
+RUN cd /opt/android_template && \
+ mkdir -p app/src/main/jniLibs/arm64-v8a && \
+ cp -r /BennuGD2/vendor/android/aarch64-linux-android/arm64-v8a/lib/* app/src/main/jniLibs/arm64-v8a \
+ && ./gradlew build
+
 # Default working directory
 WORKDIR /workspace
 ENTRYPOINT ["/bin/bash"]
