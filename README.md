@@ -2,6 +2,7 @@
 [![CD](https://github.com/humbertodias/bennugd2-builder/actions/workflows/cd.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/cd.yml)
 [![DOCKER](https://github.com/humbertodias/bennugd2-builder/actions/workflows/docker.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/docker.yml)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/humbertodias/bennugd2-builder)
+![GitHub all releases](https://img.shields.io/github/downloads/humbertodias/bennugd2-builder/total)
 
 # BennuGD2 Builder
 
