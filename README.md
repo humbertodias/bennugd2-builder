@@ -6,6 +6,8 @@
 
 Docker containers for building [BennuGD2](https://github.com/SplinterGU/BennuGD2) across multiple platforms.
 
+Documentation in [wiki](https://deepwiki.com/humbertodias/bennugd2-builder/)
+
 ## 🖥️ Supported Platforms
 
 ### ✅ Available
