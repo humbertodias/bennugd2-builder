@@ -1,12 +1,11 @@
 [![CC](https://github.com/humbertodias/bennugd2-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/ci.yml)
 [![CD](https://github.com/humbertodias/bennugd2-builder/actions/workflows/cd.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/cd.yml)
 [![DOCKER](https://github.com/humbertodias/bennugd2-builder/actions/workflows/docker.yml/badge.svg)](https://github.com/humbertodias/bennugd2-builder/actions/workflows/docker.yml)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/humbertodias/bennugd2-builder)
 
 # BennuGD2 Builder
 
 Docker containers for building [BennuGD2](https://github.com/SplinterGU/BennuGD2) across multiple platforms.
-
-Documentation in [wiki](https://deepwiki.com/humbertodias/bennugd2-builder/)
 
 ## 🖥️ Supported Platforms
 
